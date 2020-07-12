@@ -52,27 +52,10 @@
                             <li class="menu-title">Navigation</li>
 
                             <li>
-                                <a href="#sidebarDashboards" data-toggle="collapse">
+                                <a href="{{ route('admin.index') }}" data-toggle="collapse">
                                     <i data-feather="airplay"></i>
-                                    <span class="badge badge-success badge-pill float-right">4</span>
                                     <span> Dashboards </span>
                                 </a>
-                                <div class="collapse" id="sidebarDashboards">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="index.html">Dashboard 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-2.html">Dashboard 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-3.html">Dashboard 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="dashboard-4.html">Dashboard 4</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
 
                             <li class="menu-title mt-2">Apps</li>
@@ -91,12 +74,12 @@
                                         <li>
                                             <a href="{{ route('admin.artikel.create') }}">Tambah Baru</a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="tickets-detail.html">Kategori</a>
                                         </li>
                                         <li>
                                             <a href="tickets-detail.html">Tag</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </li>

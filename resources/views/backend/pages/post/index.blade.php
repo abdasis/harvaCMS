@@ -26,6 +26,15 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-12">
+        @if (Session::has('status'))
+            <div class="alert alert-success">
+                {{ Session::get('status') }}
+            </div>
+        @endif
+    </div>
+</div>
+<div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -68,12 +77,18 @@
                             <td>{{ (date('d-m-Y', strtotime($post->created_at))) }}</td>
                             <td>{{ (date('d-m-Y', strtotime($post->updated_at))) }}</td>
                             <td>
-                                <div class="button-list">
+                                <div class="button-list row">
                                     <a href="{{ route('admin.artikel.edit', $post->id) }}">
                                         <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-alt"></i></button>
                                     </a>
-                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></button>
-                                    <button class="btn btn-success btn-sm"><i class="fa fa-eye"></i></button>
+                                    <form action="{{ route('admin.artikel.destroy', $post->id) }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin hapus artikel ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></button>
+                                    </form>
+                                    <a href="{{ route('frontend.single-artikel', Str::slug($post->judul_artikel, '-')) }}">
+                                        <button class="btn btn-success btn-sm"><i class="fa fa-eye"></i></button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
