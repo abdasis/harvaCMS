@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['prefix' => 'pmii-admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index')->name('admin.index');
     Route::post('ckeditor/upload', 'Backend\DashboardController@upload')->name('ckeditor.upload');
     Route::resource('artikel', 'Backend\PostController', [
