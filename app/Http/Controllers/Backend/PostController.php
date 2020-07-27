@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.post.create');
+        $categories = Category::all();
+        return view('backend.pages.post.create')->withCategories($categories);
     }
 
     /**
@@ -53,6 +55,7 @@ class PostController extends Controller
             $gambar->move(public_path('thumbnail-artikel'), $gambar_name);
             $post->thumbnail_artikel = $gambar_name;
         }
+        $post->kategori_artikel = $request->get('kategori_artikel');
         $post->user_id = Auth::user()->id;
         $post->jumlah_komentar = 0;
         $post->save();
@@ -82,7 +85,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('backend.pages.post.edit')->withPost($post);
+        $categories = Category::all();
+        return view('backend.pages.post.edit')->withPost($post)->withCategories($categories);
     }
 
     /**

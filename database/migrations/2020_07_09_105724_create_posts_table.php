@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('status_artikel', 100);
             $table->string('jumlah_komentar', 100);
             $table->string('thumbnail_artikel', 100)->default('default-thumbnail.png');
+            $table->string('kategori_artikel', 100)->nullable();
             $table->foreignId('user_id')->constrained()->ondDelete('cascade');
             $table->timestamps();
         });

@@ -20,9 +20,16 @@
 <div class="row mb-2">
     <div class="col-12">
         <a href="{{ route('admin.artikel.create') }}" class="">
-            <button type="button" class="btn btn-info waves-effect btn-sm waves-light">
-                <span class="btn-label"><i class="mdi mdi-plus"></i></span>Tambah Artikel
-            </button> </a>
+            <button type="button" class="btn btn-primary waves-effect">
+                <i class="mdi mdi-plus mr-1"></i>Tambah Artikel
+            </button> 
+        </a>
+
+        <a href="{{ route('admin.kategori.create') }}" class="">
+            <button type="button" class="btn btn-danger waves-effect">
+                <i class="mdi mdi-plus mr-1"></i>Tambah Kategori
+            </button> 
+        </a>
     </div>
 </div>
 <div class="row">

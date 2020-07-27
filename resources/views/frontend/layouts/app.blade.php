@@ -25,39 +25,7 @@
     <body>
 
         <!--Navbar Start-->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
-            <div class="container-fluid">
-                <!-- LOGO -->
-                <a class="logo text-uppercase" href="{{ url('/') }}">
-                    <img src="{{ url('/') }}/frontend/assets/images/logo-dark.png" alt="" class="logo-light" height="20" />
-                    <img src="{{ url('/') }}/frontend/assets/images/logo-dark.png" alt="" class="logo-dark" height="20" />
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto" id="mySidenav">
-                        <li class="nav-item active">
-                            <b><a href="{{ url('/') }}" class="nav-link">Beranda</a></b>
-                        </li>
-                        <li class="nav-item">
-                            <b><a href="" class="nav-link">Populer</a></b>
-                        </li>
-                        <li class="nav-item">
-                            <b><a href="" class="nav-link">Trending</a></b>
-                        </li>
-                        <li class="nav-item">
-                            <b><a href="#pricing" class="nav-link">Terbaru</a></b>
-                        </li>
-                        <li class="nav-item">
-                            <b><a href="" class="nav-link"> <i class="fa fa-user-circle"></i>Luar Negeri</a></b>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
+        @include('frontend.includes.navbar')
 
         @yield('content')
 

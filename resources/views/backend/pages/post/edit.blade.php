@@ -65,10 +65,9 @@
                         <label>Pilih Kategori</label>
                         <select id="status_artikel" name="kategori_artikel" class="form-control">
                             <option>Pilih Kategori</option>
-                            <option>Politik</option>
-                            <option>Kemasyarakatan</option>
-                            <option>Ruang Milineal</option>
-                            <option>Ruang Desa</option>
+                            @foreach ($categories as $category)
+                            <option>{{ $category->nama_kategori }}</option>
+                            @endforeach
                         </select>
                     </div>
 
