@@ -37,53 +37,15 @@
                 </div>
             </div>
 
-            <div class="col-md-3">
-                <div class="card shadow-md">
-                    <div class="card-header border-bottom bg-white">
-                        <span class="font-weight-bolder">
-                            KATEGORI
-                        </span>
-                    </div>
-                    <div class="card-body p-0 bg-white-gray">
-                        <ul class="list-group list-group-flush bg-transparent">
-                            <li class="list-group-item list-group-item-custom">Politik</li>
-                            <li class="list-group-item list-group-item-custom">Ekonomi</li>
-                            <li class="list-group-item list-group-item-custom">Keuangan</li>
-                            <li class="list-group-item list-group-item-custom">Olah Raga</li>
-                            <li class="list-group-item list-group-item-custom">Teknologi</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card shadow-md">
-                    <div class="card-header border-bottom bg-white">
-                        Post Terbaru
-                    </div>
-
-                    @foreach ($recents as $recent)
-                    <div class="card-body p-1 bg-white-gray">
-                        <div class="card box-artikel bg-white shadow-md mb-0">
-                            <div class="row card-body m-0 p-0 ">
-                                <img src="{{ asset('thumbnail-artikel') . '/' .$recent->thumbnail_artikel }}"  class="col-md-4 card-img p-0 rounded" alt="">
-                                <div class="col-md-8 py-1">
-                                    <p class="card-text text-danger font-12 font-weight-bold m-0"><i class="mdi mdi-account-circle-outline mr-1"></i>{{ $recent->user->name }}</p>
-                                    <h1 class="font-14 m-0">
-                                        <a class="text-dark" href="{{ route('frontend.single-artikel', Str::slug($recent->judul_artikel, '-')) }}">{{ $recent->judul_artikel }}</a>
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
+            @include('frontend.includes.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">
-                            Komentar
+                            <h3 class="font-weight-bolder">Komentar</h3>
                         </div>
+                        <div class="alert alert-success">Berkomentar dengan bijak dan berkomentarlah dengan kata-kata yang baik dan sopan</div>
                         <div id="disqus_thread"></div>
                         <script>
 

@@ -28,7 +28,7 @@
                     <div class="card-body p-1 bg-white-gray">
                         <div class="card box-artikel bg-white shadow-md mb-0">
                             <div class="row card-body m-0 p-0 ">
-                                <img src="{{ asset('thumbnail-artikel') . '/' .$recent->thumbnail_artikel }}"  class="col-md-4 card-img p-0 rounded" alt="" style="object-fit: cover; object-position: center">
+                                <img src="{{ asset('thumbnail-artikel') . '/' .$recent->thumbnail_artikel }}"  class="col-md-4 card-img p-0 rounded" height="100" width="100" alt="" style="object-fit: cover; object-position: center">
                                 <div class="col-md-8 py-2">
                                     <p class="card-text text-muted font-11 font-weight-light m-0"><i class="mdi mdi-calendar"></i> {{ date('d-m-Y', strtotime($recent->created_at)) }}</p>
                                     <h1 class="font-14 m-0">
