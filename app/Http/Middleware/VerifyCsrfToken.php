@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        '/pmii-admin/ckeditor/upload'
+        '/admin/ckeditor/upload',
+        '/admin/artikel/store',
     ];
 }

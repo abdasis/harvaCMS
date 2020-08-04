@@ -100,7 +100,7 @@
             statusbar: false,
             menubar: false,
             automatic_uploads: true,
-            images_upload_url: "/pmii-admin/ckeditor/upload",
+            images_upload_url: "/admin/ckeditor/upload",
             file_picker_types: "image",
             image_class_list: [
                 {title: 'Full width', value: 'img-fluid img-responsive img-thumbnail'},
