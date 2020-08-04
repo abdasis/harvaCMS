@@ -14,11 +14,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = "Abd. Asis";
-        $user->email = "id.abdasis@gmail.com";
-        $user->slug = Str::slug('Abd. Asis', '-');
-        $user->password = Hash::make('rahasia');
+        $user->name = "Administrator";
+        $user->email = "administrator@gmail.com";
+        $user->slug = Str::slug('Administrator', '-');
+        $user->password = Hash::make('*#rahasia123#');
         $user->save();
-        
+
     }
 }

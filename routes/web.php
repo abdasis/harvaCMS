@@ -31,5 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 Route::get('/artikel/{kategori}', 'Frontend\FrontendController@kategoriArtikel')->name('artikel.kategori');
 Route::get('berita/{artikel}', 'Frontend\FrontendController@singleArtikel')->name('frontend.single-artikel');
 Route::get('/', 'Frontend\FrontendController@index')->name('frontend.index');
-Auth::routes();
+Auth::routes([
+    'register' => false
+]);
 Route::get('/home', 'HomeController@index')->name('home');
