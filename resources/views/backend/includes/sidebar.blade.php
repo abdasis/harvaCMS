@@ -74,10 +74,10 @@
                                         <li>
                                             <a href="{{ route('admin.artikel.create') }}">Tambah Baru</a>
                                         </li>
-                                        <!-- <li>
-                                            <a href="tickets-detail.html">Kategori</a>
-                                        </li>
                                         <li>
+                                            <a href="{{ route('admin.kategori.index') }}">Kategori</a>
+                                        </li>
+                                        <!-- <li>
                                             <a href="tickets-detail.html">Tag</a>
                                         </li> -->
                                     </ul>
@@ -119,25 +119,6 @@
                                     </ul>
                                 </div>
                             </li>
-
-                            <li>
-                                <a href="#peralatan" data-toggle="collapse">
-                                    <i class="fas fa-tools"></i>
-                                    <span> Peralatan </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <div class="collapse" id="peralatan">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="tickets-list.html">Import</a>
-                                        </li>
-                                        <li>
-                                            <a href="tickets-detail.html">Export</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
 
                         </ul>
 

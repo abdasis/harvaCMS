@@ -69,7 +69,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        $categories = Category::all();
+        return view('backend.pages.kategori.edt')->withCategory($category)->withCategories($categories);
     }
 
     /**
@@ -81,7 +83,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::transaction(function () use($request, $id) {
+            $category = Category::find($id);
+            $category->nama_kategori = $request->get('nama_kategori');
+            $category->slug = Str::slug($request->get('nama_kategori'), '-');
+            $category->save();
+            Session::flash('status', 'Kategori berhasil diupdate');
+        });
+        return redirect()->route('admin.kategori.edit', $id);
     }
 
     /**
@@ -92,6 +101,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        Session::flash('status', 'Kategori berhasil dihapus');
+        return redirect()->back();
     }
 }

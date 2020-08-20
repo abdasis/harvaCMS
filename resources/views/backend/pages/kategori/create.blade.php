@@ -61,8 +61,8 @@
                                     <th>Option</th>
                                 </tr>
                             </thead>
-        
-        
+
+
                             <tbody>
                                 @foreach ($categories as $key => $category)
                                 <tr>
@@ -72,17 +72,14 @@
                                     <td>{{ date('d-m-Y', strtotime($category->updated_at)) }}</td>
                                     <td>
                                         <div class="button-list row">
-                                            <a href="{{ route('admin.artikel.edit', $category->id) }}">
+                                            <a href="{{ route('admin.kategori.edit', $category->id) }}">
                                                 <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-alt"></i></button>
                                             </a>
-                                            <form action="{{ route('admin.artikel.destroy', $category->id) }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin hapus artikel ini?')">
+                                            <form action="{{ route('admin.kategori.destroy', $category->id) }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin hapus artikel ini?')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></button>
                                             </form>
-                                            <a href="{{ route('frontend.single-artikel', Str::slug($category->judul_artikel, '-')) }}">
-                                                <button class="btn btn-success btn-sm"><i class="fa fa-eye"></i></button>
-                                            </a>
                                         </div>
                                     </td>
                                 </tr>
