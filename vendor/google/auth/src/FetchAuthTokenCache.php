@@ -27,7 +27,8 @@ class FetchAuthTokenCache implements
     FetchAuthTokenInterface,
     GetQuotaProjectInterface,
     SignBlobInterface,
-    ProjectIdProviderInterface
+    ProjectIdProviderInterface,
+    UpdateMetadataInterface
 {
     use CacheTrait;
 
@@ -84,14 +85,23 @@ class FetchAuthTokenCache implements
         // TODO: correct caching; enable the cache to be cleared.
         $cacheKey = $this->fetcher->getCacheKey();
         $cached = $this->getCachedValue($cacheKey);
-        if (!empty($cached)) {
-            return ['access_token' => $cached];
+        if (is_array($cached)) {
+            if (empty($cached['expires_at'])) {
+                // If there is no expiration data, assume token is not expired.
+                // (for JwtAccess and ID tokens)
+                return $cached;
+            }
+            if (time() < $cached['expires_at']) {
+                // access token is not expired
+                return $cached;
+            }
         }
 
         $auth_token = $this->fetcher->fetchAuthToken($httpHandler);
 
-        if (isset($auth_token['access_token'])) {
-            $this->setCachedValue($cacheKey, $auth_token['access_token']);
+        if (isset($auth_token['access_token']) ||
+            isset($auth_token['id_token'])) {
+            $this->setCachedValue($cacheKey, $auth_token);
         }
 
         return $auth_token;
@@ -178,5 +188,44 @@ class FetchAuthTokenCache implements
         }
 
         return $this->fetcher->getProjectId($httpHandler);
+    }
+
+    /**
+     * Updates metadata with the authorization token.
+     *
+     * @param array $metadata metadata hashmap
+     * @param string $authUri optional auth uri
+     * @param callable $httpHandler callback which delivers psr7 request
+     * @return array updated metadata hashmap
+     * @throws \RuntimeException If the fetcher does not implement
+     *     `Google\Auth\UpdateMetadataInterface`.
+     */
+    public function updateMetadata(
+        $metadata,
+        $authUri = null,
+        callable $httpHandler = null
+    ) {
+        if (!$this->fetcher instanceof UpdateMetadataInterface) {
+            throw new \RuntimeException(
+                'Credentials fetcher does not implement ' .
+                'Google\Auth\UpdateMetadataInterface'
+            );
+        }
+
+        // Set the `Authentication` header from the cache, so it is not set
+        // again by the fetcher
+        $result = $this->fetchAuthToken($httpHandler);
+
+        if (isset($result['access_token'])) {
+            $metadata[self::AUTH_METADATA_KEY] = [
+                'Bearer ' . $result['access_token']
+            ];
+        }
+
+        return $this->fetcher->updateMetadata(
+            $metadata,
+            $authUri,
+            $httpHandler
+        );
     }
 }

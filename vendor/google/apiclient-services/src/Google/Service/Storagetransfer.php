@@ -102,11 +102,11 @@ class Google_Service_Storagetransfer extends Google_Service
               'path' => 'v1/transferJobs',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'filter' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -168,11 +168,11 @@ class Google_Service_Storagetransfer extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'filter' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),

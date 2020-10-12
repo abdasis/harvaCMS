@@ -74,9 +74,9 @@
                                         <li>
                                             <a href="{{ route('admin.artikel.create') }}">Tambah Baru</a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <a href="{{ route('admin.kategori.index') }}">Kategori</a>
-                                        </li>
+                                        </li> --}}
                                         <!-- <li>
                                             <a href="tickets-detail.html">Tag</a>
                                         </li> -->
@@ -85,12 +85,19 @@
                             </li>
 
                             <li>
-                                <a href="#pengguna" data-toggle="collapse">
+                                <a href="{{ route('admin.kategori.index') }}">
+                                    <i class="fas fa-bookmark"></i>
+                                    <span> Kategori </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('admin.user.index') }}">
                                     <i class="fas fa-users"></i>
                                     <span> Pengguna </span>
-                                    <span class="menu-arrow"></span>
+                                    {{-- <span class="menu-arrow"></span> --}}
                                 </a>
-                                <div class="collapse" id="pengguna">
+                                {{-- <div class="collapse" id="pengguna">
                                     <ul class="nav-second-level">
                                         <li>
                                             <a href="{{ route('admin.user.index') }}">Semua Pengguna</a>
@@ -99,7 +106,7 @@
                                             <a href="{{ route('admin.user.create') }}">Tambah Pengguna</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </li>
 
                             <li>

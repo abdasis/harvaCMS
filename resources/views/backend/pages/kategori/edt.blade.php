@@ -76,11 +76,6 @@
                                             <a href="{{ route('admin.kategori.edit', $category->id) }}">
                                                 <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-alt"></i></button>
                                             </a>
-                                            <form action="{{ route('admin.kategori.destroy', $category->id) }}" method="post" onsubmit="return confirm('Apakah anda yakin ingin hapus artikel ini?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash-alt"></i></button>
-                                            </form>
                                         </div>
                                     </td>
                                 </tr>

@@ -7,9 +7,9 @@
     <div class="container-fluid">
         <!-- LOGO -->
         <a class="logo text-uppercase" href="{{ url('/') }}">
-            {{--  <img src="{{ url('/') }}/frontend/assets/images/logo-dark.png" alt="" class="logo-light" height="20" />
-            <img src="{{ url('/') }}/frontend/assets/images/logo-dark.png" alt="" class="logo-dark" height="20" />  --}}
-            <h4 class="text-dark font-weight-bolder">ARAH INDONESIA</h4>
+             <img src="{{ url('/') }}/backend/assets/images/logo-arah-indonesia.jpg" alt="" class="logo-light" height="50" />
+            {{-- <img src="{{ url('/') }}/frontend/assets/images/logo-dark.png" alt="" class="logo-dark" height="20" />  --}}
+            {{-- <h4 class="text-dark font-weight-bolder">ARAH INDONESIA</h4> --}}
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

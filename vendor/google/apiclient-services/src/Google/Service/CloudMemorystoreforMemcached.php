@@ -80,11 +80,11 @@ class Google_Service_CloudMemorystoreforMemcached extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'filter' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -147,20 +147,6 @@ class Google_Service_CloudMemorystoreforMemcached extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'getIamPolicy' => array(
-              'path' => 'v1beta2/{+resource}:getIamPolicy',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'resource' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'options.requestedPolicyVersion' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
             ),'list' => array(
               'path' => 'v1beta2/{+parent}/instances',
               'httpMethod' => 'GET',
@@ -170,6 +156,10 @@ class Google_Service_CloudMemorystoreforMemcached extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -177,10 +167,6 @@ class Google_Service_CloudMemorystoreforMemcached extends Google_Service
                 'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
                 'orderBy' => array(
                   'location' => 'query',
@@ -199,26 +185,6 @@ class Google_Service_CloudMemorystoreforMemcached extends Google_Service
                 'updateMask' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-              ),
-            ),'setIamPolicy' => array(
-              'path' => 'v1beta2/{+resource}:setIamPolicy',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'resource' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'testIamPermissions' => array(
-              'path' => 'v1beta2/{+resource}:testIamPermissions',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'resource' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
                 ),
               ),
             ),'updateParameters' => array(

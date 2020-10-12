@@ -19,7 +19,7 @@ use InvalidArgumentException;
  * @method \Illuminate\Routing\RouteRegistrar domain(string $value)
  * @method \Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
  * @method \Illuminate\Routing\RouteRegistrar name(string $value)
- * @method \Illuminate\Routing\RouteRegistrar namespace(string $value)
+ * @method \Illuminate\Routing\RouteRegistrar namespace(string|null $value)
  * @method \Illuminate\Routing\RouteRegistrar prefix(string  $prefix)
  * @method \Illuminate\Routing\RouteRegistrar where(array  $where)
  */
@@ -178,6 +178,15 @@ class RouteRegistrar
 
         if (is_string($action) || $action instanceof Closure) {
             $action = ['uses' => $action];
+        }
+
+        if (is_array($action) &&
+            is_callable($action) &&
+            ! Arr::isAssoc($action)) {
+            $action = [
+                'uses' => $action[0].'@'.$action[1],
+                'controller' => $action[0].'@'.$action[1],
+            ];
         }
 
         return array_merge($this->attributes, $action);
