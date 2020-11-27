@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
-
+@section('title')
+{{ $post->judul_artikel }}
+@endsection
 @section('content')
     <div class="container">
         <div class="row" style="margin-top: 100px">
